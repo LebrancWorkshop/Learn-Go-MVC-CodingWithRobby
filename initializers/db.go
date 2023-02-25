@@ -18,6 +18,6 @@ func ConnectToDatabase() {
 		panic(err)
 	}
 
-	
+	_ = DB
 
 }

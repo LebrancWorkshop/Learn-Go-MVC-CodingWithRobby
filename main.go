@@ -1,8 +1,11 @@
 package main
 
 import (
-	"fmt"
+	_ "fmt"
 	"lebrancconvas/gomvc-robby/initializers"
+	"os"
+
+	"github.com/gofiber/fiber/v2"
 )
 
 func init() {
@@ -11,5 +14,11 @@ func init() {
 }
 
 func main() {
-	fmt.Println("Hello Go MVC Naja.")	
+	app := fiber.New()
+
+	app.Get("/", func(c *fiber.Ctx) error {
+		return c.SendString("Hello, World!")
+	})
+
+	app.Listen(":" + os.Getenv("PORT"))
 }

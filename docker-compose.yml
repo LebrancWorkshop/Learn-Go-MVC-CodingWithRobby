@@ -1,0 +1,20 @@
+version: '3.9'
+
+
+services:
+  postgres:
+    container_name: postgres_gomvc
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: P@ssw0rd
+      PGDATA: postgres
+    volumes:
+       - postgres-db:/data/postgres
+    ports:
+      - "5401:5432"
+
+
+volumes:
+  postgres-db:
+    driver: local
